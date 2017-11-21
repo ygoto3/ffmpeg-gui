@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+.command-preview {
+  width: 100%;
+}
+
+.param-table {
+  width: 100%;
+}
+
+.param-table td:first-of-type {
+  width: 150px;
+}
+
+#input-file,
+#output-file {
+  width: 300px;
+}
+
+#videoBitrate,
+#bframes,
+#audioBitrate {
+  width: 100%;
+}

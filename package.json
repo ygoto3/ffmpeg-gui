@@ -1,0 +1,24 @@
+{
+  "name": "ffmpeg-gui",
+  "version": "0.0.1",
+  "main": "main.js",
+  "repository": {},
+  "license": "MIT",
+  "scripts": {
+    "init-install": "npm install electron electron-packager -g",
+    "dev": "electron .",
+    "clear": "rm -rf node_modules && rm -rf coverage",
+    "package": "electron-packager . \"ffmpeg GUI\" --platform=darwin --arch=x64 --electron-version=$(electron --version | awk '{print substr($0, 2)}') --app-version=0.0.1",
+    "build": "yarn clear && yarn install --production && yarn package",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "app/**/*.js"
+    ]
+  }
+}

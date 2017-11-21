@@ -1,0 +1,14 @@
+# OS X files
+.DS_Store
+Thumbs.db
+
+# Generated files
+npm-debug.log
+node_modules/
+coverage/
+yarn-error.log
+ffmpeg\ GUI-darwin-x64/
+
+# Intellij project files
+.idea
+*.iml
