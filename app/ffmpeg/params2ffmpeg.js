@@ -1,5 +1,5 @@
-const negate = require('../fp/composers/negate');
-const isEmpty = require('../fp/predicates/isEmpty');
+const negate = require('../utils/fp/composers/negate');
+const isEmpty = require('../utils/fp/predicates/isEmpty');
 
 function params2ffmpeg(params) {
   const paramArr = [];

@@ -20,5 +20,9 @@
     "collectCoverageFrom": [
       "app/**/*.js"
     ]
+  },
+  "dependencies": {
+    "htmlparser2": "^3.9.2",
+    "incremental-dom": "^0.5.1"
   }
 }
