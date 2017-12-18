@@ -1,8 +1,9 @@
+// @flow
 const pageActions = require('./components/pageActions');
 const main = require('./components/presenters/templates/main');
 const done = require('./components/presenters/templates/done');
 
-const state = {
+const state/*: State*/ = {
   render(model) {
     var representation = '';
     switch (model.page) {
@@ -17,21 +18,22 @@ const state = {
   }
 };
 
-const actions = {
-  goTo(page) {
+const actions/*: Actions*/ = {
+  page: null,
+  goTo(page/*: string*/) {
     model.accept({ page });
     actions.page = pageActions[page](model, actions);
     actions.page.onLoad();
   },
-  updateParams(params) {
+  updateParams(params/*: FfmpegParams*/) {
     model.accept({ params });
   },
-  updateLog(log) {
+  updateLog(log/*: string*/) {
     model.accept({ log });
   }
 };
 
-const model = {
+const model/*: Model*/ = {
   page: '',
   params: {
     videoCodec: '',
@@ -43,14 +45,16 @@ const model = {
     input: '',
     output: '',
   },
-  accept(data = {}) {
+  log: '',
+  accept(data/*: ModelData*/ = {}) {
     if (data.page) model.page = data.page;
-    if (data.log) model.log = data.log; Object.assign(model.params, data.params);
+    if (data.log) model.log = data.log;
+    Object.assign(model.params, data.params);
     state.render(model);
   }
 };
 
-function init(render) {
+function init(render/*: (html: string) => void*/) {
   const _render = state.render;
   state.render = (...args) => {
     const representation = _render(...args);

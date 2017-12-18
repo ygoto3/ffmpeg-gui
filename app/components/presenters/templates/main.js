@@ -1,7 +1,9 @@
+// @flow
 const params2ffmpeg = require('../../../ffmpeg/params2ffmpeg');
 
-const main = model => {
+const main/*: (model: Model) => string */ = model => {
   const { params } = model;
+  if (!params) return '';
   return `
   <textarea rows="3" class="command-preview">ffmpeg ${params2ffmpeg(params)}</textarea>
 

@@ -1,0 +1,10 @@
+type staticPropertyValuePairs = string[];
+
+declare module 'incremental-dom' {
+  declare module.exports: {
+    elementOpen(tagName: string, key: ?string, staticPropertyValuePairs: ?string[], ...propertyValuePairs?: any[]): HTMLElement;
+    elementClose(tagName: string): HTMLElement;
+    text(value: string): void;
+    patch<T>(el: HTMLElement, fn: (T) => void, data: T): void;
+  }
+}

@@ -1,0 +1,3 @@
+declare interface State {
+  render: (model: Model) => string;
+}

@@ -1,0 +1,10 @@
+declare interface FfmpegParams {
+  videoCodec: string,
+  profile: string,
+  videoBitrate: string,
+  bframes: string,
+  audioCodec: string,
+  audioBitrate: string,
+  input: string,
+  output: string,
+}

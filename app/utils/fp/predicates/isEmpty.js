@@ -1,5 +1,7 @@
-function isEmpty(val) {
-  return val === null || val === void 0 || val === '';
+// @flow
+
+function isEmpty(v/*: any*/)/*: boolean*/ {
+  return v === null || v === void 0 || v === '';
 }
 
 module.exports = isEmpty;

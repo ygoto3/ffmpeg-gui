@@ -1,25 +1,39 @@
+// @flow
+
+/*::
+export type Observer = {
+  next: Function,
+  error: Function,
+  complete: Function,
+};
+
+export type Subscription = {
+  dispose: Function,
+};
+*/
+
 class Observable {
+
+  /*::
+  _forEach: Function;
+  */
   
-  static fromEvent(element, eventName) {
-    return new Observable(observer => {
-      if (!observer) {
-        console.log(element);
-        console.log(eventName);
-      }
+  static fromEvent(element/*: HTMLElement*/, eventName/*: string*/)/*: Observable*/ {
+    return new Observable((observer/*: Observer*/)/*: Subscription*/ => {
       element.addEventListener(eventName, observer.next);
       return {
-        dispose() {
+        dispose()/*: void*/ {
           element.removeEventListener(eventName, observer.next);
         }
       };
     });
   }
 
-  constructor(forEach) {
+  constructor(forEach/*: (o: Observer) => Subscription*/) {
     this._forEach = forEach;
   }
 
-  subscribe(next, error, complete) {
+  subscribe(next/*: any*/, error/*: ?Function*/, complete/*: ?Function*/)/*: Subscription*/ {
     if (typeof next !== 'function') return this._forEach(next);
 
     return this._forEach({

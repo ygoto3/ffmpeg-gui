@@ -1,0 +1,13 @@
+declare type Model = {
+  page: string;
+  accept: (data: ModelData) => void;
+  params: FfmpegParams;
+  log: string;
+};
+
+declare type ModelData = {
+  page?: string;
+  accept?: (data: ModelData) => void;
+  params?: FfmpegParams;
+  log?: string;
+};

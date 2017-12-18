@@ -1,0 +1,10 @@
+declare type Actions = {
+  page: ?PageActions;
+  goTo(page: string): void;
+  updateParams(params: FfmpegParams): void;
+  updateLog(log: string): void;
+}
+
+declare interface PageActions {
+  onLoad(model: Model, actions?: Actions): void;
+}

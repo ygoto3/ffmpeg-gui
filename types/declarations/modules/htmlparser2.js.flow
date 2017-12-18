@@ -1,0 +1,17 @@
+interface htmlparser2$ParseOperators {
+  onopentag(name: string, attrs: {[index: string]: string}): any;
+  ontext(text: string): any;
+  onclosetag(name: string): any;
+}
+
+interface htmlparser2$Parser {
+  constructor(parseOperators: htmlparser2$ParseOperators): htmlparser2$Parser;
+  write(html: string): void;
+  end(): void;
+}
+
+declare module 'htmlparser2' {
+  declare module.exports: {
+    Parser: Class<htmlparser2$Parser>,
+  }
+}
